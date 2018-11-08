@@ -149,11 +149,19 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>apply plugin: org.springframework.boot</li>
+
 <li>BAYB_JAVA_MAIN</li>
 
 <li>buildscript</li>
 
 <li>Gradle</li>
+
+<li>Gradle Spring Boot Config</li>
+
+<li>lombok</li>
+
+<li>Spring Boot</li>
 
 </ul>
 </p>
@@ -8709,7 +8717,7 @@ Error message and password prompt
 <div created="20181103125803800" modified="20181103163843983" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div list="BAYB_JAVA_MAIN Gradle buildscript" title="$:/StoryList">
+<div list="BAYB_JAVA_MAIN lombok Gradle [[Gradle Spring Boot Config]] [[apply plugin: org.springframework.boot]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -8875,23 +8883,87 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20181103130054910" modified="20181103164041533" title="BAYB_JAVA_MAIN">
+<div created="20181104152829074" modified="20181104172200622" title="apply plugin: org.springframework.boot">
+<pre>apply plugin:'org.springframework.boot'
+
+This plugin will allow packaging of jar/wars , dependency management 
+Specify how the project will be wrapped up in executable and transported 
+
+common usage:
+
+* bootJar {
+   mainClassName = 'com.tags.camel.Main'
+}
+Above gives configuration for the jar , this would eliminate the usage for bootRepackage 
+Similar to above we can use bootWar
+
+Gradle version required: 4.4
+
+</pre>
+</div>
+<div created="20181103130054910" modified="20181105211817417" title="BAYB_JAVA_MAIN">
 <pre>Tiddly entries for java related technologies and frameworks :
 
 * [[Gradle]]
 * [[Spring Boot]]
-* [[Git]]</pre>
+* [[Git]]
+*[[lombok]]</pre>
 </div>
-<div created="20181103165334015" modified="20181103165519552" title="buildscript">
+<div created="20181103165334015" modified="20181104073143069" title="buildscript">
 <pre>* Build script is used when using a 3rd party library or tools with gradle in a project
 * Example: for making project compatible with spring boot
 * Variables in project.ext (global variables in gradle) cannot be accessed inside  a buildscript but outside build script variables can access the variables declared inside the buildscript
+* Buildscript block required its own repository declaration
 </pre>
 </div>
-<div created="20181103163904380" modified="20181103165327137" title="Gradle">
+<div created="20181103163904380" modified="20181104172138825" title="Gradle">
 <pre>* [[buildscript]]
+* [[Gradle Spring Boot Config]]</pre>
+</div>
+<div created="20181104172144245" modified="20181104172648788" title="Gradle Spring Boot Config">
+<pre>*[[apply plugin: org.springframework.boot]]
+</pre>
+</div>
+<div created="20181105213035109" modified="20181108161223766" title="lombok">
+<pre>* @NoArgsConstructor
+-&gt;Create an empty constructor 
+
+* @RequiredArgsConstructor 
+-&gt; creates a constructor for all final feilds
+-&gt; This can be used with a @NonNull on the vasriable feilds that will check for nullability and throw null pointer exception
+-&gt; @NonNull will also work for non final variables with a @setter
+
+* @Accessors(fluent=true)
+-&gt; removes the get from the accesors , getName becomes name()
+
+* @builder
+-&gt; using @builder(tobuilder=true) will create a tobuilder method that can then be used to create copy or near copy (almost same values but some different feilds) of the object, tobuilder methid will be added to the class
+the values can be changed 
+
+* @ToString and @EqualsAndHashCode:
+-&gt; Generate toString and equalsAndHashCode method
+
+* @ SneakyThrows (Not recommended):
+@SneakyThrows(UnsupportedEncodingException.class) over a method probably throwing an UnsupportedEncodingException ( these exception cannot be logged)
+
+-&gt; throw checked exceptions without using the throws declaration. 
+
+* @Cleanup  :
+-&gt; used for local variables whose resources needs to be released like i/o streams, .close method will be automatically called, if close methid is not default, then :
+@Cleanup(&quot;&lt;&lt;method_name&gt;&gt;&quot;)
+
+* @Syncronized :
+-&gt; marking method as syncronized (not block)
+-&gt; With this annotation, Lombok will generate a private field named $lock for nonstatic method and a private field named $LOCK for static method. This will be safer way because it will allow use lock on an instance field rather than on this.
+// sample lock feild generated:  private final Object $lock = new Object[0];
+
+
+
 
 </pre>
+</div>
+<div created="20181104152616888" modified="20181104172114749" title="Spring Boot">
+<pre></pre>
 </div>
 
 </div>
