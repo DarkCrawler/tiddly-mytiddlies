@@ -201,8 +201,6 @@ Error message and password prompt
 
 <li>Java</li>
 
-<li>Java ENUM</li>
-
 <li>JVM</li>
 
 <li>JVM Concepts</li>
@@ -8797,7 +8795,7 @@ Error message and password prompt
 <div created="20181217163533042" modified="20181217163533042" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Tools</pre>
 </div>
-<div list="BAYB [[Programming Languages]] Java [[Java ENUM]]" title="$:/StoryList">
+<div list="BAYB [[Programming Languages]] Java [[Spring Framework]] [[Spring Boot]] application.properties" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9245,11 +9243,9 @@ __''NOTE''__
 <div created="20181110114753735" modified="20181110114812026" title="Groovy">
 <pre>*[[Documented Groovy solutions]]</pre>
 </div>
-<div created="20181221000834804" modified="20190214170650519" title="Java">
+<div created="20181221000834804" modified="20181221001300595" title="Java">
 <pre>* Concepts
 ** [[JVM]]
-**[[Regular Expression]]
-**[[Java ENUM]]
 
 * Frameworks &amp; Tools
 ** [[Spring Framework]]
@@ -9257,68 +9253,6 @@ __''NOTE''__
 ** [[log4j]]
 
 
-</pre>
-</div>
-<div created="20190228163219818" modified="20190228164419799" title="Java ENUM">
-<pre>Good exmaple of enum usage:
-package com.sabre.avro.components.openapi.rest.v1_0.external.faresoptimizer;
-
-```
-public enum RecommendationStatus {
-   NORECOM(&quot;No Recom&quot;, CREATED),
-   NEW(&quot;New&quot;, CREATED),
-   PENDING(&quot;Pending&quot;, PROCESSING),
-   FILED(&quot;Filed&quot;, PROCESSING),
-   APPROVED(&quot;Approved&quot;, PROCESSING),
-   UNDONE(&quot;Undone&quot;, PROCESSING),
-   REJECTED(&quot;Rejected&quot;, COMPLETED),
-   FAILED(&quot;Failed&quot;, COMPLETED),
-
-   VALIDATED(&quot;Validated&quot;, COMPLETED),
-   UNDO_INITIATED(&quot;Undo Initiated&quot;, PROCESSING),
-   UNDO_FAILED(&quot;Undo Failed&quot;, COMPLETED),
-   UNDO_FILED(&quot;Undo Filed&quot;, PROCESSING),
-   UNDO_VALIDATED(&quot;Undo Validated&quot;, COMPLETED);
-
-   private static final Map&lt;String, RecommendationStatus&gt; RECOMMENDATION_STATUS_MAP = new HashMap&lt;&gt;();
-
-   static {
-      for (RecommendationStatus recommendationStatus : values()) {
-         RECOMMENDATION_STATUS_MAP.put(recommendationStatus.getName(), recommendationStatus);
-      }
-   }
-
-   private String name;
-   private RecommendationLifeCycle recommendationLifeCycle;
-
-   RecommendationStatus(String name, RecommendationLifeCycle recommendationLifeCycle) {
-      this.name = name;
-      this.recommendationLifeCycle = recommendationLifeCycle;
-   }
-
-   public static RecommendationStatus getByName(String name) {
-      RecommendationStatus recommendationStatus = RECOMMENDATION_STATUS_MAP.get(name);
-      if (recommendationStatus != null) {
-         return recommendationStatus;
-      } else {
-         throw new RuntimeException(&quot;No Recommendation Status value found for &quot; + name);
-      }
-   }
-
-   public static RecommendationLifeCycle getRecommendationLifeCycle(String name) {
-      RecommendationStatus recommendationStatus = RECOMMENDATION_STATUS_MAP.get(name);
-      return recommendationStatus.getRecommendationLifeCycle();
-   }
-
-   public RecommendationLifeCycle getRecommendationLifeCycle() {
-      return recommendationLifeCycle;
-   }
-
-   public String getName() {
-      return name;
-   }
-}
-```
 </pre>
 </div>
 <div created="20181221000932862" modified="20181221000947035" title="JVM">
